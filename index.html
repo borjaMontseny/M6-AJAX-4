@@ -1,0 +1,126 @@
+<!-- borjaMontseny DAW2 M06 2024 -->
+<html class="h-100">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Activitat DAW-M6">
+	<meta name="author" content="Borja Montseny">
+	<title>IBC Movies Database</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+	<link rel="icon"
+		href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📽️</text></svg>">
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script src="pelis.js"></script>
+
+	<style>
+		#suggestions {
+			display: block;
+			position: absolute;
+			z-index: 90;
+			padding: 5px;
+			margin-top: 1px;
+			cursor: pointer;
+		}
+
+		#suggestions div {
+			padding: 10px;
+		}
+
+		#suggestions div:hover {
+			background-color: #86ecfc;
+		}
+
+		.elem-mid {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.loading {
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: rgba(0, 0, 0, 0.4);
+			width: 100%;
+			height: 100%;
+			z-index: 99;
+			text-align: center;
+			font-size: 10vw;
+		}
+
+		.rotate {
+			animation: rotation 8s infinite linear;
+			display: inline-block;
+		}
+
+		@keyframes rotation {
+			from {
+				transform: rotate(0deg);
+			}
+
+			to {
+				transform: rotate(359deg);
+			}
+		}
+	</style>
+</head>
+
+<body class="h-100 d-flex flex-column">
+
+	<div class="loading" style="display: none;">
+		<div class="elem-mid">
+			<div class="rotate"><i class="bi bi-arrow-repeat text-primary"></i></div>
+		</div>
+	</div>
+
+	<div class="px-4 py-2 text-center">
+		<h1 class="display-5 fw-bold"><i class="bi bi-camera-reels"></i></h1>
+		<h1 class="display-5 fw-bold">IBC Movies Database</h1>
+	</div>
+
+	<div class="container flex-shrink-0 text-center">
+		<h2 class="lead">Escriu el nom de la pel·lícula</h2>
+		<div class="row py-3 text-center">
+			<div id="content" class="col-lg-6 mx-auto text-left">
+				<div class="form-inline">
+					<div class="input-group input-group-sm col-sm-12">
+						<input class="search_query form-control" type="text" name="key" id="filmSearch"
+							autocomplete="off" placeholder="Cercar...">
+						<span class="input-group-btn">
+							<button class="btn btn-info btn-flat disabled" id="filmButton"><i
+									class="bi-search"></i></button>
+						</span>
+					</div>
+				</div>
+				<div class="input-group input-group-sm col-sm-12">
+					<div class="card" id="suggestions" style="display: none;">
+						<div class="suggest-element" id="624860">The Matrix Resurrections</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row mt-5" id="movies" style="">
+
+
+
+
+
+		</div>
+	</div>
+
+	<footer class="footer bg-light mt-auto py-3">
+		<div class="container text-center">
+			<span class="text-muted"><a href="https://www.insbaixcamp.org">© Institut Baix Camp</a></span>
+		</div>
+	</footer>
+
+</body>
+
+</html>
